@@ -5,4 +5,12 @@ const axios = TheAxios.create({
   timeout: 20000
 })
 
-export default axios
+export default ({ url, method = 'GET', params = {}, data = {}, headers = {} }) => {
+  return axios({
+    url: url,
+    method: method,
+    params: params,
+    data: data,
+    headers: headers
+  })
+}
