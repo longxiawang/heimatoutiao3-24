@@ -12,3 +12,22 @@ export const getAllChannels = () => {
     method: 'GET'
   })
 }
+
+//  登录验证
+export const LoginApi = (mobile, code) => {
+  return axios({
+    url: '/v1_0/authorizations',
+    method: 'POST',
+    data: { mobile: mobile, code: code }
+  })
+}
+
+// 获取用户的关注频道
+export const GetVipListApi = (token) => {
+  return axios({
+    url: '/v1_0/user/channels',
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` }
+
+  })
+}

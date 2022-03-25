@@ -11,7 +11,8 @@ module.exports = defineConfig({
             // // 直接覆盖变量
             'nav-bar-background-color': '#007bff',
             'nav-bar-title-text-color': '#fff',
-            'nav-bar-height': '46px'
+            'nav-bar-height': '46px',
+            'tabs-bottom-bar-color': '#007bff'
             // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
             // hack: `true; @import "${path.join(__dirname, '/src/styles/vant.less')}";`
           }
