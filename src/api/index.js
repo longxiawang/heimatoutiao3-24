@@ -31,3 +31,15 @@ export const GetVipListApi = (token) => {
 
   })
 }
+
+// 获取文章新闻列表(默认获取推荐频道列表)
+export const GetNewsList = (token, id, time) => {
+  return axios({
+    url: '/v1_0/articles',
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    params: { channel_id: id, timestamp: time }
+  })
+}
