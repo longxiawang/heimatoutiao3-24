@@ -1,6 +1,7 @@
 <template>
   <div class="box1">
-    <van-list
+    <van-pull-refresh v-model="isLoading" @refresh="onRefresh" success-text="刷新成功" loading-text='加载中...' >
+         <van-list
       v-model="loading"
       :finished="finished"
       finished-text="没有更多了"
@@ -13,6 +14,8 @@
         :NewsItem="item"
       ></ItemData>
     </van-list>
+</van-pull-refresh>
+
   </div>
 </template>
 
@@ -37,7 +40,8 @@ export default {
       loading: false,
       finished: false,
       NewList: [],
-      TheTime: new Date().getTime()
+      TheTime: new Date().getTime(),
+      isLoading: false
     }
   },
 
@@ -75,6 +79,26 @@ export default {
       this.TheTime = OldNewsList.data.data.pre_timestamp
 
       this.loading = false
+    },
+    // 下拉刷新方法函数
+    async onRefresh () {
+      // 既然是下拉刷新，那就把该清的数据都清掉，回到最初状态
+      this.NewList = []
+      this.TheTime = new Date().getTime()
+
+      const F5 = await GetNewsList(
+        GetToken('token'),
+        this.name,
+        this.TheTime
+      )
+
+      this.NewList = F5.data.data.results
+
+      this.TheTime = F5.data.data.pre_timestamp
+
+      // 操作完把下拉刷新的v-model绑定的值设置成false，表示加载处理完成
+
+      this.isLoading = false
     }
   }
 }
