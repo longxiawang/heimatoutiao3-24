@@ -12,6 +12,7 @@
         v-for="item in NewList"
         :key="item.art_id"
         :NewsItem="item"
+        @DeleteNoLike=DeleteNoLike
       ></ItemData>
     </van-list>
 </van-pull-refresh>
@@ -99,6 +100,14 @@ export default {
       // 操作完把下拉刷新的v-model绑定的值设置成false，表示加载处理完成
 
       this.isLoading = false
+    },
+
+    // 删除不感兴趣的文章函数
+    DeleteNoLike (id) {
+      // 过滤掉不喜欢的文章后重新赋值给文章数据列表，这样借助VUE数据发生变化，视图会重新渲染
+      this.NewList = this.NewList.filter((item) => {
+        return item.art_id !== id
+      })
     }
   }
 }
