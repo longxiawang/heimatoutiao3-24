@@ -72,7 +72,8 @@ export default {
 
     // 点击每一个我关注的频道列表标签触发事件
     ClickChannel (id) {
-      // 点击的时候先判断，如果 BadgeStatus的值为true，也就是x图标显示，也就是处在删除列表界面的时候，才会去删除点击项
+      // 点击的时候先判断，如果 BadgeStatus的值为true，也就是x图标显示，也就是处在删除列表界面的时候
+      // 且判断点击的频道列表不等于0，也就是不等于推荐列表，也就是点击 推荐频道不能进入下列操作
       if (this.BadgeStatus && id !== 0) {
         // 拿到了每个频道列表的id值
         console.log(id)

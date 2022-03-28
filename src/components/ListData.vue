@@ -12,7 +12,7 @@
         v-for="item in NewList"
         :key="item.art_id"
         :NewsItem="item"
-        @DeleteNoLike=DeleteNoLike
+        @DeleteNoLike='DeleteNoLike'
       ></ItemData>
     </van-list>
 </van-pull-refresh>
@@ -33,7 +33,7 @@ export default {
     ItemData
   },
 
-  props: ['NewsList', 'name'], // 新闻列表推荐数据，父MyHome组件传过来的，name为本列表容器频道分类的id值，比如我这个列表是html类频道，则我的id就是1.比如我的分类是css频道，则我的id则为4...，这个数据实在循环生成列表分类的时候，父组件传过来的
+  props: ['NewsList', 'MyName'], // 新闻列表推荐数据，父MyHome组件传过来的，name为本列表容器频道分类的id值，比如我这个列表是html类频道，则我的id就是1.比如我的分类是css频道，则我的id则为4...，这个数据实在循环生成列表分类的时候，父组件传过来的
 
   data () {
     return {
@@ -50,7 +50,7 @@ export default {
   async created () {
     const NewsList = await GetNewsList(
       GetToken('token'),
-      this.name,
+      this.MyName,
       // 初始打开频道分类页面的请求时间戳，为本地最新时间戳
       this.TheTime
     )
@@ -65,7 +65,7 @@ export default {
     async onLoad () {
       const OldNewsList = await GetNewsList(
         GetToken('token'),
-        this.name,
+        this.MyName,
         // 上拉加载更多的时候，时间戳就为上一次的服务器返回的时间戳
         this.TheTime
       )
@@ -89,7 +89,7 @@ export default {
 
       const F5 = await GetNewsList(
         GetToken('token'),
-        this.name,
+        this.MyName,
         this.TheTime
       )
 

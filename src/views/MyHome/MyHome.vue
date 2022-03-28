@@ -16,7 +16,7 @@
         <!-- 循环生成vant Tab标签导航栏组件 -->
         <!-- 每一个Vant Tab导航栏标签组件内，在放入内容列表数据的容纳组件 -->
         <!-- ListData为每一列数据结构列表的容纳组件，该组件内放置着组件ItemData，为单列结构模板组件 -->
-        <van-tab :title=item.name v-for="item in ListData " :key="item.id"><ListData :NewsList=NewsList :name='item.id' ></ListData> </van-tab>
+        <van-tab :title=item.name v-for="item in ListData " :key="item.id" :name="item.id" ><ListData :NewsList=NewsList :MyName='item.id'></ListData> </van-tab>
       </van-tabs>
 
       <!-- 频道列表多选小图标 -->
