@@ -4,6 +4,7 @@ import MyNav from '../views/Login/MyNav.vue'
 import MyLayOut from '../views/Layout/MyLayout.vue'
 import MyHome from '../views/MyHome/MyHome.vue'
 import MyUser from '../views/MyUser/MyUser.vue'
+import MySearch from '../views/MySearch/MySearch.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -13,6 +14,10 @@ const routes = [{
 {
   path: '/login',
   component: MyNav
+},
+{
+  path: '/search',
+  component: MySearch
 },
 {
   path: '/layout',

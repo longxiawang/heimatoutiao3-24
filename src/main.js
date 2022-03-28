@@ -4,10 +4,29 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible' // 移入flexible.js，设置跟标签字体大小（移动端适配）
 
-import { NavBar, Form, Field, Button, Tabbar, TabbarItem, Icon, Tab, Tabs, Cell, List, PullRefresh, ActionSheet, Popup, Row, Col, Badge } from 'vant' // 引入vant组件
+import {
+  NavBar,
+  Form,
+  Field,
+  Button,
+  Tabbar,
+  TabbarItem,
+  Icon,
+  Tab,
+  Tabs,
+  Cell,
+  List,
+  PullRefresh,
+  ActionSheet,
+  Popup,
+  Row,
+  Col,
+  Badge,
+  Search
+} from 'vant' // 引入vant组件
 
 Vue.use(Form) // 账号输入表单组件
-Vue.use(Field)// 输入框组件
+Vue.use(Field) // 输入框组件
 Vue.use(NavBar) // 注册登录导航栏组件
 Vue.use(Button) // 引入按钮组件
 Vue.use(Tabbar) // 移入底部组件
@@ -23,6 +42,8 @@ Vue.use(Popup) // 引入弹出层组件
 Vue.use(Row) // 引入弹出层组件
 Vue.use(Col)
 Vue.use(Badge)
+Vue.use(Search) // 引入搜索功能组件
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -96,3 +96,12 @@ export const UpVipList = (Obj) => {
     }
   })
 }
+
+// 获取联想建议（自动补全）
+export const RelevantNews = (value) => {
+  return axios({
+    url: '/v1_0/suggestion',
+    method: 'GET',
+    params: { q: value }
+  })
+}

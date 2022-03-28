@@ -6,8 +6,9 @@
         <img src="../../assets/toutiao_logo.png" alt="" srcset="" class="log" />
       </template>
       <template #right>
+        <!-- 搜索关键字图标 -->
         <!-- postcss无法转换行内样式的px，需要手动计算 -->
-        <van-icon name="search" size="0.48rem" color="#fff" />
+        <van-icon name="search" size="0.48rem" color="#fff" @click="SearchNews" />
       </template>
     </van-nav-bar>
     <!-- Tab栏分区切换区域  sticky：粘性定位，offset-top=1.226666rem 行内样式插件无法计算手动46/37.5-->
@@ -71,6 +72,11 @@ export default {
       //   })
       // }
       this.show = true
+    },
+
+    // 点击搜索按钮,先跳转路由至搜索组件
+    SearchNews () {
+      this.$router.push('/search')
     },
 
     // 预设定子组件点击x关闭整个弹出层
